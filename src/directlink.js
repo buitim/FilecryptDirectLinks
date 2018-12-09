@@ -1,7 +1,6 @@
 function main() {
 	var list = document.querySelectorAll("button.download");
 	var regex = /"openLink\('(.*?)', this\);"/;
-	var links = [];
 
 	for (i = 0; i < list.length; i++) {
 		var str = String(list[i].outerHTML);
