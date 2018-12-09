@@ -1,14 +1,8 @@
 function main() {
-	var list = document.querySelectorAll("button.download");
-	var regex = /"openLink\('(.*?)', this\);"/;
-	var links = [];
-
-	for (i = 0; i < list.length; i++) {
-		var str = String(list[i].outerHTML);
-		var m = regex.exec(str);
-		window.open(
-			"https://filecrypt.cc/Link/" + String(m[1]) + ".html",
-			"_blank"
-		);
-	}
+	var regex = /uc\?id=(.*?)&export=download/;
+	var str = String(window.location.href);
+	var m = regex.exec(str);
+	var url = "https://drive.google.com/file/d/" + String(m[1]) + "/view";
+	console.log("== " + url);
+	window.location.assign(url);
 }
